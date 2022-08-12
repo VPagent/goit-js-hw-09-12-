@@ -23,6 +23,7 @@ const options = {
     onClose(selectedDates) {
       console.log(selectedDates[0]);
       let date = new Date()
+     
       let ident = Boolean(date < selectedDates[0])
       if(ident){
         refs.btnStart.removeAttribute("disabled")
@@ -34,17 +35,16 @@ const options = {
                 timerId = setInterval(() => {
                 date = new Date()
                 let delta = selectedDates[0] - date
-        
                 let values = convertMs(delta)
                 refs.days.textContent = values.days.toString().padStart(2, '0')
                 refs.hours.textContent = values.hours.toString().padStart(2, '0')
                 refs.minutes.textContent = values.minutes.toString().padStart(2, '0')
                 refs.seconds.textContent = values.seconds.toString().padStart(2, '0')
-                // if(values.days === 00 && values.hours === 00 && values.minutes === 00 && values.seconds === 00){
+                if(!delta){
                     
                     clearInterval(timerId)
                     alert("Дождались)")
-                // }
+                }
                 }, 1000)
                 
                 
@@ -79,3 +79,4 @@ function convertMs(ms) {
   
     return { days, hours, minutes, seconds };
   }
+  
