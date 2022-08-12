@@ -40,11 +40,11 @@ const options = {
                 refs.hours.textContent = values.hours.toString().padStart(2, '0')
                 refs.minutes.textContent = values.minutes.toString().padStart(2, '0')
                 refs.seconds.textContent = values.seconds.toString().padStart(2, '0')
-                if(values.days === 00 && values.hours === 00 && values.minutes === 00 && values.seconds === 00){
+                // if(values.days === 00 && values.hours === 00 && values.minutes === 00 && values.seconds === 00){
                     
                     clearInterval(timerId)
                     alert("Дождались)")
-                }
+                // }
                 }, 1000)
                 
                 
